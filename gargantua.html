@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar - Gargantua y el Teseracto</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/gargantua-styles.css">
+    <link rel="icon" type="image/png" href="Assets/Interstellar_film_logo.png">
+</head>
+<body class="gargantua-page">
+
+    <!-- Canvas para la animación de fondo con anime.js -->
+    <canvas id="background-animation"></canvas>
+
+    <header>
+        <a href="index.html"><img src="Assets/Interstellar_film_logo.png" alt="Logo de Interestelar" id="logo"></a>
+        <button class="hamburger-menu" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#mision">La Misión</a></li>
+                <li><a href="index.html#tripulacion">Tripulación</a></li>
+                <li class="dropdown">
+                    <a href="index.html#galeria">Galería</a>
+                    <ul class="submenu">
+                        <li class="dropdown-submenu">
+                            <a href="#">Planetas</a>
+                            <ul class="submenu-level2">
+                                <li><a href="miller.html">Miller</a></li>
+                                <li><a href="edmunds.html">Edmunds</a></li>
+                                <li><a href="mann.html">Mann</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gargantua.html">Gargantua</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Video decorativo -->
+        <video autoplay loop muted class="header-video-deco">
+            <!-- GUÍA: Cambia este video por uno de Gargantua -->
+            <source src="Assets/Video/LogoGargantua.mp4" type="video/mp4">
+        </video>
+        <button id="sound-toggle" type="button">🔇</button>
+    </header>
+
+    <main>
+        <section id="hero-gargantua" class="scroll-reveal">
+            <h1>Gargantua y el Teseracto</h1>
+            <p class="subtitle">El horizonte de sucesos donde el espacio y el tiempo se convierten en un lienzo.</p>
+            <!-- GUÍA: Cambia esta imagen por una de Gargantua -->
+            <img src="Assets/Planetas/Gargantua.png" alt="Agujero negro Gargantua flotando" class="scroll-object">
+        </section>
+
+        <section id="caracteristicas">
+            <canvas id="snow-canvas"></canvas> <!-- Este canvas ahora es para partículas de luz -->
+            <h2 class="scroll-reveal">La Singularidad y la Biblioteca</h2>
+            <div class="info-container">
+                <div class="info-card scroll-reveal">
+                    <h3>Un Gigante Supermasivo</h3>
+                    <p>Gargantua es un agujero negro supermasivo en rotación, con una masa de 100 millones de soles. Su disco de acreción, compuesto de gas y polvo sobrecalentado, ilumina los planetas que lo orbitan.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>El Teseracto Oculto</h3>
+                    <p>Dentro de la singularidad, seres de una dimensión superior construyeron un Teseracto, un hipercubo tetradimensional. No es un lugar, sino una representación física de las cinco dimensiones.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>El Puente Gravitacional</h3>
+                    <p>Desde el Teseracto, Cooper puede manipular la gravedad a través del tiempo, enviando los datos cuánticos a su hija Murph en el pasado y permitiéndole resolver la ecuación que salvará a la humanidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="el-salto-de-fe">
+            <!-- <video autoplay loop muted class="video-fondo-seccion">
+                <source src="Assets/Video/VisualesTeseracto ‐ Hecho con Clipchamp.mp4" type="video/mp4">
+            </video> -->
+            <img src="Assets/Planetas/Teseracto.jpg" class="video-fondo-seccion"></img>
+            <!-- GUÍA: Cambia esta imagen por una de Murph -->
+            <img src="Assets/Personajes/Murph_CooperUno.png" alt="Murph" class="peeking-image">
+            <!-- GUÍA: Cambia esta imagen por una de Cooper en el Teseracto -->
+            <img src="Assets/Personajes/Murpgh_CooperDos.png" alt="Cooper en el Teseracto" class="peeking-image-left">
+            <div class="contenido-seccion scroll-reveal">
+                <h2>El Salto de Fe</h2>
+                <div class="texto-salto">
+                    <p>
+                        Para escapar de la gravedad de Gargantua, Cooper se desprende del Endurance y se sumerge en el agujero negro, un acto suicida con la esperanza de enviar los datos cuánticos a la Tierra.
+                    </p>
+                    <p>
+                        En lugar de ser destruido, es rescatado por el Teseracto. Allí, guiado por el robot TARS, comprende que "ellos" no son extraterrestres, sino una versión futura y evolucionada de la humanidad que construyó este puente para salvar a sus antepasados.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN DE DATOS -->
+        <section id="datos-planeta">
+            <!-- GUÍA: Cambia esta imagen por una del Teseracto -->
+            <img src="Assets/Planetas/Gargantua.png" alt="Análisis del Teseracto" class="datos-planeta-img">
+            <div class="datos-container">
+                <!-- Estos son los elementos que se animarán -->
+                <div class="data-point" id="data-temp">
+                    <div class="line"></div>
+                    <div class="text">Masa: 100 Millones de Soles</div>
+                </div>
+                <div class="data-point" id="data-atmo">
+                    <div class="line"></div>
+                    <div class="text">Dimensiones: 5 (3 Espacio, 1 Tiempo, 1 Gravedad)</div>
+                </div>
+                <div class="data-point" id="data-grav">
+                    <div class="line"></div>
+                    <div class="text">Propósito: Manipulación Gravitacional</div>
+                </div>
+                <div class="data-point" id="data-dia">
+                    <div class="line"></div>
+                    <div class="text">Creadores: Humanidad del Futuro</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="el-circulo-se-cierra" class="scroll-reveal">
+            <h2>El Círculo se Cierra</h2>
+            <p>
+                Usando código Morse y la aguja de un reloj, Cooper transmite los datos a través de la gravedad, convirtiéndose en el "fantasma" de la infancia de Murph. Una vez completada su tarea, el Teseracto se colapsa y lo expulsa cerca de Saturno, donde es rescatado décadas después. Su viaje a través del tiempo y el espacio no solo salvó a la humanidad, sino que también cerró una paradoja que él mismo había iniciado.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="legales">
+            <p>&copy; 2024 - Sitio de Fans de Interestelar. Creado con fines educativos y de entretenimiento.</p>
+            <p>Interestelar y todos los materiales relacionados son propiedad de Paramount Pictures y Warner Bros. Pictures.</p>
+        </div>
+        <div class="redes-sociales">
+            <a href="#" title="Facebook">FB</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Instagram">IG</a>
+        </div>
+    </footer>
+
+    <audio id="background-music" src="Assets/Music/Interestellar-Soudtrack.mp3" loop></audio>
+
+    <!-- Librería Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Scripts de la página principal y de esta página -->
+    <script src="JS/main.js"></script>
+    <script src="JS/gargantua-script.js"></script>
+</body>
+</html>

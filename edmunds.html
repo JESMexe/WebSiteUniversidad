@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar - El Planeta de Edmunds</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/edmunds-styles.css">
+    <link rel="icon" type="image/png" href="Assets/Interstellar_film_logo.png">
+</head>
+<body class="edmunds-page">
+
+    <!-- Canvas para la animación de fondo con anime.js -->
+    <canvas id="background-animation"></canvas>
+
+    <header>
+        <a href="index.html"><img src="Assets/Interstellar_film_logo.png" alt="Logo de Interestelar" id="logo"></a>
+        <button class="hamburger-menu" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#mision">La Misión</a></li>
+                <li><a href="index.html#tripulacion">Tripulación</a></li>
+                <li class="dropdown">
+                    <a href="index.html#galeria">Galería</a>
+                    <ul class="submenu">
+                        <li class="dropdown-submenu">
+                            <a href="#">Planetas</a>
+                            <ul class="submenu-level2">
+                                <li><a href="miller.html">Miller</a></li>
+                                <li><a href="edmunds.html">Edmunds</a></li>
+                                <li><a href="mann.html">Mann</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gargantua.html">Gargantua</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Video decorativo -->
+        <video autoplay loop muted class="header-video-deco">
+            <!-- GUÍA: Puedes cambiar este video si quieres -->
+            <source src="Assets/Video/LogoPlanetaEdmunds.mp4" type="video/mp4">
+        </video>
+        <button id="sound-toggle" type="button">🔇</button>
+    </header>
+
+    <main>
+        <section id="hero-edmunds" class="scroll-reveal">
+            <h1>El Mundo de Edmunds</h1>
+            <p class="subtitle">Un desierto de esperanza y el futuro de la humanidad.</p>
+            <!-- GUÍA: Cambia esta imagen por una del planeta Edmunds -->
+            <img src="Assets/Planetas/PlanetaEdmunds.png" alt="Planeta de Edmunds flotando" class="scroll-object">
+        </section>
+
+        <section id="caracteristicas">
+            <canvas id="snow-canvas"></canvas> <!-- Este canvas ahora podría ser para partículas de arena -->
+            <h2 class="scroll-reveal">Un Nuevo Amanecer</h2>
+            <div class="info-container">
+                <div class="info-card scroll-reveal">
+                    <h3>Atmósfera Respirable</h3>
+                    <p>A diferencia de los otros mundos, el planeta de Edmunds posee una atmósfera rica en nitrógeno y oxígeno, perfectamente respirable para los humanos sin necesidad de casco, abriendo la puerta a una colonización real.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>Superficie Rocosa</h3>
+                    <p>Su superficie es un vasto desierto rocoso, con cañones y mesetas esculpidas por el viento. Aunque árido, el terreno es estable y apto para la construcción de asentamientos permanentes bajo un sol similar al de la Tierra.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>Condiciones para la Vida</h3>
+                    <p>Con una gravedad del 90% de la terrestre y sin la peligrosa dilatación temporal de Miller, este planeta es un verdadero oasis. La presencia de química orgánica compleja confirma que es un mundo donde la vida puede prosperar.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="el-legado">
+            <!-- <video autoplay loop muted class="video-fondo-seccion">
+                <source src="Assets/Video/VisualesPlanetaEdmunds ‐ Hecho con Clipchamp.mp4" type="video/mp4">
+            </video> -->
+            <img src="Assets/Planetas/PlanteaEdmunds.webp" class="video-fondo-seccion"></img>
+            <!-- GUÍA: Cambia esta imagen por una de Brand o un explorador -->
+            <img src="Assets/Personajes/BrandCuerpoDos.png" alt="Brand en el planeta de Edmunds" class="peeking-image">
+            <div class="contenido-seccion scroll-reveal">
+                <h2>El Legado de Edmunds</h2>
+                <div class="texto-legado">
+                    <p>
+                        El astronauta Wolf Edmunds fue el primero en confirmar que su planeta era la joya de la misión Lázaro. Su baliza transmitió datos positivos durante años, una señal de esperanza constante.
+                    </p>
+                    <p>
+                        Lamentablemente, Edmunds falleció en un corrimiento de tierras mucho antes de la llegada del Endurance. Su sacrificio no fue en vano; su descubrimiento solitario le dio a la humanidad un destino, un lugar al que finalmente llamar hogar. Su campamento se convirtió en la base del futuro.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN DE DATOS -->
+        <section id="datos-planeta">
+            <!-- GUÍA: Cambia esta imagen por una del planeta Edmunds -->
+            <img src="Assets/Planetas/PlanetaEdmunds.png" alt="Análisis del Planeta de Edmunds" class="datos-planeta-img">
+            <div class="datos-container">
+                <!-- Estos son los elementos que se animarán -->
+                <div class="data-point" id="data-temp">
+                    <div class="line"></div>
+                    <div class="text">Temperatura: 24°C (Promedio)</div>
+                </div>
+                <div class="data-point" id="data-atmo">
+                    <div class="line"></div>
+                    <div class="text">Oxígeno: 21% (Respirable)</div>
+                </div>
+                <div class="data-point" id="data-grav">
+                    <div class="line"></div>
+                    <div class="text">Gravedad: 90% Tierra</div>
+                </div>
+                <div class="data-point" id="data-dia">
+                    <div class="line"></div>
+                    <div class="text">Duración del día: 26.7 Horas</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="el-futuro" class="scroll-reveal">
+            <h2>El Futuro de la Humanidad</h2>
+            <p>
+                Al final de su viaje, Amelia Brand llega al planeta de Edmunds y establece el primer campamento, el "Plan B" en acción. Sin su casco, respira el aire de un nuevo mundo mientras se prepara para criar a la próxima generación de la humanidad. A lo lejos, Cooper, tras su odisea a través del teseracto, viaja en una nave para reunirse con ella, marcando el comienzo de un nuevo capítulo para nuestra especie.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="legales">
+            <p>&copy; 2024 - Sitio de Fans de Interestelar. Creado con fines educativos y de entretenimiento.</p>
+            <p>Interestelar y todos los materiales relacionados son propiedad de Paramount Pictures y Warner Bros. Pictures.</p>
+        </div>
+        <div class="redes-sociales">
+            <a href="#" title="Facebook">FB</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Instagram">IG</a>
+        </div>
+    </footer>
+
+    <audio id="background-music" src="Assets/Music/Interestellar-Soudtrack.mp3" loop></audio>
+
+    <!-- Librería Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Scripts de la página principal y de esta página -->
+    <script src="JS/main.js"></script>
+    <script src="JS/edmunds-script.js"></script>
+</body>
+</html>

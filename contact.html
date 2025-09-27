@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar - Contacto</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="icon" type="image/png" href="Assets/Interstellar_film_logo.png">
+</head>
+<body class="contact-page">
+
+    <video autoplay loop muted class="video-fondo">
+        <source src="Assets/Video/InterestellarFondoVideo ‐ Hecho con Clipchamp.mp4" type="video/mp4">
+    </video>
+
+    <header>
+        <a href="index.html"><img src="Assets/Interstellar_film_logo.png" alt="Logo de Interestelar" id="logo"></a>
+        <button class="hamburger-menu" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#mision">La Misión</a></li>
+                <li><a href="index.html#tripulacion">Tripulación</a></li>
+                <li class="dropdown">
+                    <a href="index.html#galeria">Galería</a>
+                    <ul class="submenu">
+                        <li class="dropdown-submenu">
+                            <a href="#">Planetas</a>
+                            <ul class="submenu-level2">
+                                <li><a href="miller.html">Miller</a></li>
+                                <li><a href="edmunds.html">Edmunds</a></li>
+                                <li><a href="mann.html">Mann</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gargantua.html">Gargantua</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <button id="sound-toggle" type="button">🔇</button>
+    </header>
+
+    <main>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <div class="form-container">
+                <form id="contact-form" action="mailto:tuemail@example.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Nombre</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Mensaje</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="legales">
+            <p>&copy; 2024 - Sitio de Fans de Interestelar. Creado con fines educativos y de entretenimiento.</p>
+            <p>Interestelar y todos los materiales relacionados son propiedad de Paramount Pictures y Warner Bros. Pictures.</p>
+        </div>
+        <div class="redes-sociales">
+            <a href="#" title="Facebook">FB</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Instagram">IG</a>
+        </div>
+    </footer>
+
+    <audio id="background-music" src="Assets/Music/Interestellar-Soudtrack.mp3" loop></audio>
+
+    <script src="JS/main.js"></script>
+</body>
+</html>

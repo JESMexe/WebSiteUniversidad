@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar - El Planeta de Miller</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/miller-styles.css">
+    <link rel="icon" type="image/png" href="Assets/Interstellar_film_logo.png">
+</head>
+<body class="miller-page">
+
+    <!-- Canvas para la animación de fondo con anime.js -->
+    <canvas id="background-animation"></canvas>
+
+    <header>
+        <a href="index.html"><img src="Assets/Interstellar_film_logo.png" alt="Logo de Interestelar" id="logo"></a>
+        <button class="hamburger-menu" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#mision">La Misión</a></li>
+                <li><a href="index.html#tripulacion">Tripulación</a></li>
+                <li class="dropdown">
+                    <a href="index.html#galeria">Galería</a>
+                    <ul class="submenu">
+                        <li class="dropdown-submenu">
+                            <a href="#">Planetas</a>
+                            <ul class="submenu-level2">
+                                <li><a href="miller.html">Miller</a></li>
+                                <li><a href="edmunds.html">Edmunds</a></li>
+                                <li><a href="mann.html">Mann</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gargantua.html">Gargantua</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Video decorativo -->
+        <video autoplay loop muted class="header-video-deco">
+            <!-- GUÍA: Cambia este video por uno de Miller -->
+            <source src="Assets/Video/LogoPlanetaMiller.mp4" type="video/mp4">
+        </video>
+        <button id="sound-toggle" type="button">🔇</button>
+    </header>
+
+    <main>
+        <section id="hero-miller" class="scroll-reveal">
+            <h1>El Mundo Acuático de Miller</h1>
+            <p class="subtitle">Un océano sin fin donde cada segundo es una eternidad.</p>
+            <!-- GUÍA: Cambia esta imagen por una del planeta Miller -->
+            <img src="Assets/Planetas/PlanetaMiller.png" alt="Planeta de Miller flotando" class="scroll-object">
+        </section>
+
+        <section id="caracteristicas">
+            <canvas id="snow-canvas"></canvas> <!-- Este canvas ahora es para burbujas -->
+            <h2 class="scroll-reveal">La Trampa del Tiempo</h2>
+            <div class="info-container">
+                <div class="info-card scroll-reveal">
+                    <h3>Océano Superficial</h3>
+                    <p>Un planeta cubierto por un océano de apenas un metro de profundidad, pero con olas colosales de más de un kilómetro de altura, generadas por la inmensa fuerza de marea de Gargantúa.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>Dilatación Temporal Extrema</h3>
+                    <p>Debido a su proximidad con el agujero negro, el tiempo en Miller se ralentiza drásticamente. Una hora en su superficie equivale a siete años en la Tierra, convirtiendo cada minuto en una decisión crítica.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>Sin Tierra Firme</h3>
+                    <p>No hay superficie sólida visible. La única 'tierra' son los restos de la misión de Miller, esparcidos por el agua y azotados por las olas gigantescas que barren el planeta periódicamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="la-tragedia-de-miller">
+            <!--<video autoplay loop muted class="video-fondo-seccion">
+                <source src="Assets/Video/VisualesPlanetaMiller ‐ Hecho con Clipchamp.mp4" type="video/mp4">
+            </video>-->
+            <img src="Assets/Planetas/Miller.webp" class="video-fondo-seccion"></img>
+            <!-- GUÍA: Cambia esta imagen por una de Doyle -->
+            <img src="Assets/Personajes/Bran_Doyle.png" alt="Doyle en el planeta de Miller" class="peeking-image">     
+            <img src="Assets/Personajes/Nave.png" alt="Cooper asomándose" class="peeking-image-left">
+            <div class="contenido-seccion scroll-reveal">
+                <h2>La Tragedia de Miller</h2>
+                <div class="texto-tragedia">
+                    <p>
+                        La astronauta Laura Miller fue la primera en aterrizar, transmitiendo datos positivos que sugerían la presencia de agua y química orgánica. Sin embargo, su baliza dejó de transmitir poco después, probablemente destruida por una de las olas masivas.
+                    </p>
+                    <p>
+                        La tripulación del Endurance llega para encontrar solo los restos de su nave, descubriendo demasiado tarde que los datos positivos eran una trampa mortal causada por la dilatación temporal.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN DE DATOS -->
+        <section id="datos-planeta">
+            <!-- GUÍA: Cambia esta imagen por una del planeta Miller -->
+            <img src="Assets/Planetas/PlanetaMiller.png" alt="Análisis del Planeta de Miller" class="datos-planeta-img">
+            <div class="datos-container">
+                <!-- Estos son los elementos que se animarán -->
+                <div class="data-point" id="data-temp">
+                    <div class="line"></div>
+                    <div class="text">Temperatura: 5°C (Agua)</div>
+                </div>
+                <div class="data-point" id="data-atmo">
+                    <div class="line"></div>
+                    <div class="text">Agua: 100% (Superficie)</div>
+                </div>
+                <div class="data-point" id="data-grav">
+                    <div class="line"></div>
+                    <div class="text">Dilatación: 1 Hora = 7 Años</div>
+                </div>
+                <div class="data-point" id="data-dia">
+                    <div class="line"></div>
+                    <div class="text">Profundidad: ~1.2 metros</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="el-costo-de-la-mision" class="scroll-reveal">
+            <h2>El Costo de la Misión</h2>
+            <p>
+                La visita a Miller resulta en una catástrofe. La pérdida de Doyle y de 23 años de tiempo terrestre debido a un error de cálculo deja a la misión con recursos críticamente bajos y a la tripulación enfrentando las devastadoras consecuencias de sus decisiones. Este evento marca un punto de inflexión, forzando a Cooper y Brand a reconsiderar sus opciones y el verdadero precio de salvar a la humanidad.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="legales">
+            <p>&copy; 2024 - Sitio de Fans de Interestelar. Creado con fines educativos y de entretenimiento.</p>
+            <p>Interestelar y todos los materiales relacionados son propiedad de Paramount Pictures y Warner Bros. Pictures.</p>
+        </div>
+        <div class="redes-sociales">
+            <a href="#" title="Facebook">FB</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Instagram">IG</a>
+        </div>
+    </footer>
+
+    <audio id="background-music" src="Assets/Music/Interestellar-Soudtrack.mp3" loop></audio>
+
+    <!-- Librería Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Scripts de la página principal y de esta página -->
+    <script src="JS/main.js"></script>
+    <script src="JS/miller-script.js"></script>
+</body>
+</html>

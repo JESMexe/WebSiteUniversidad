@@ -1,0 +1,413 @@
+/* Estilos para la página del Planeta de Edmunds */
+
+.edmunds-page {
+    background-color: #100a05; /* Un negro ligeramente cálido/rojizo */
+}
+
+/* Canvas para la animación de fondo */
+#background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás de todo el contenido */
+}
+
+/* Sección de Héroe */
+#hero-edmunds {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2em;
+    position: relative; /* Necesario para posicionar el .scroll-object */
+    margin-bottom: 0; /* Elimina el espacio negro con la siguiente sección */
+}
+
+#hero-edmunds h1 {
+    font-size: 3.5em;
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(245, 225, 201, 0.5); /* Sombra para resaltar */
+    color: #F5E1C9; /* Color arena claro */
+}
+
+#hero-edmunds .subtitle {
+    font-size: 1.2em;
+    color: #C7A88B; /* Naranja pálido */
+    margin-top: 0.5em;
+}
+
+/* Estilos para las secciones de información */
+#el-futuro {
+    z-index: 11;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4em 2em;
+}
+
+/* SECCIÓN 2: CARACTERÍSTICAS */
+#caracteristicas {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    /* GUÍA: Reemplaza con una imagen del desierto de Edmunds */
+    background-image: url('../Assets/Planetas/PlanetaEdmundsViewer.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+#caracteristicas::before,
+#caracteristicas::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    z-index: 2;
+}
+
+#caracteristicas::before {
+    left: 0;
+    background: linear-gradient(to right, #100a05, transparent);
+}
+
+#caracteristicas::after {
+    right: 0;
+    background: linear-gradient(to left, #100a05, transparent);
+}
+
+#caracteristicas .info-container,
+#caracteristicas h2 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 3;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#caracteristicas p {
+    color: #f3e4d6; /* Marrón oscuro para el texto sobre fondo claro */
+}
+
+#caracteristicas h2 {
+    color: #f6d3a9; /* Color arena claro */
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.info-card {
+    background-color: #b5743370; /* Cambiado a naranja semi-transparente */
+    backdrop-filter: blur(5px);
+    border: 1px solid #E89F5A; /* Borde naranja más brillante */
+    padding: 1.5em;
+    border-radius: 8px;
+}
+
+.info-card p {
+    color: #fff8f0; /* Texto color arena claro para contraste */
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: #F5E1C9; /* Título blanco-arena para máximo contraste */
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* SECCIÓN 3: EL LEGADO (CON VIDEO DE FONDO) */
+#el-legado {
+    padding: 0;
+    max-width: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-fondo-seccion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter:blur(5px);
+}
+
+#el-legado::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(26, 10, 5, 0.85); /* Overlay más oscuro y cálido */
+    z-index: -1;
+}
+
+.contenido-seccion {
+    max-width: 900px;
+    padding: 4em 2em;
+    z-index: 1;
+}
+
+.texto-legado {
+    background-color: rgba(20, 10, 5, 0.4);
+    border-left: 3px solid #b57433; /* Naranja */
+    padding: 2em;
+    border-radius: 0 8px 8px 0;
+}
+
+#el-legado p, #el-futuro p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Imagen que se asoma en la sección 3 */
+.peeking-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 380px;
+    height: auto;
+    z-index: 0;
+    transform: translateX(80%);
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.peeking-image.is-visible {
+    transform: translateX(20%);
+}
+
+.peeking-image-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 580px;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-80%);
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.peeking-image-left.is-visible {
+    transform: translateX(-20%);
+}
+
+/* Estado inicial para las animaciones de scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Margen inferior para la última sección */
+#el-futuro {
+    padding-bottom: 8em;
+}
+
+/* Planeta flotante en la primera sección */
+.scroll-object {
+  position: absolute;
+  bottom: -150px;
+  left: 85%;
+  transform: translateX(-50%);
+  width: 800px;
+  z-index: -1;
+  max-width: 90vw; /* Asegura que no se desborde en pantallas grandes */
+  transform-origin: center center;
+  opacity: 1;
+}
+
+/* Nueva sección de datos del planeta */
+#datos-planeta {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente en desktop */
+    position: relative;
+    overflow: hidden;
+    gap: 2em;
+    padding: 2em;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+}
+
+.datos-planeta-img {
+    height: 90%;
+    opacity: 0;
+    z-index: 5;
+    transform: translateX(-100vw);
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+}
+
+.datos-container {
+    position: static; /* Asegura que no haya posicionamiento absoluto aquí */
+    width: 50%;
+    height: 100%;
+    display: flex; /* Para organizar los data-points */
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+
+.data-point {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+}
+
+.data-point .line {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #E89F5A); /* Naranja */
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+.data-point .text {
+    color: #F5E1C9; /* Arena claro */
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1em;
+    white-space: nowrap;
+    padding-left: 15px;
+    text-shadow: 0 0 8px rgba(232, 159, 90, 0.5); /* Sombra naranja */
+}
+
+/* Posicionamiento profesional de los datos */
+#data-temp { top: 20%; left: 45%; }
+#data-temp .line { width: 100px; }
+
+#data-atmo { top: 40%; left: 50%; }
+#data-atmo .line { width: 150px; }
+
+#data-grav { top: 60%; left: 50%; }
+#data-grav .line { width: 120px; }
+
+#data-dia { top: 80%; left: 45%; }
+#data-dia .line { width: 180px; }
+
+/* Canvas específico para la nieve/arena en la sección 2 */
+#snow-canvas {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+/* Video decorativo en el header */
+.header-video-deco {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 1.5em;
+    border: 1px solid #555;
+    opacity: 0.7;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: top right;
+}
+
+.header-video-deco:hover {
+    transform: scale(5);
+    border-radius: 2px;
+    opacity: 1;
+    border-color: #252525; /* Naranja */
+    z-index: 1001;
+}
+
+/* Media Queries para Responsividad en Edmunds Page */
+@media (max-width: 768px) {
+    #hero-edmunds {
+        height: auto; /* Altura automática para el contenido */
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    #hero-edmunds h1 {
+        font-size: 2.5em; /* Reduce el tamaño del título */
+    }
+
+    #hero-edmunds .subtitle {
+        font-size: 1em; /* Reduce el tamaño del subtítulo */
+    }
+
+    .scroll-object {
+        width: 90%; /* El planeta ocupa más ancho */
+        left: 50%; /* Centrado */
+        transform: translateX(-50%) scale(1) !important; /* Anula la animación de escala de JS para que no se desborde */
+        bottom: 0; /* Ajusta la posición vertical */
+        opacity: 1 !important; /* Asegura que sea visible */
+    }
+
+    #caracteristicas::before,
+    #caracteristicas::after {
+        width: 100%; /* Degradados de ancho completo */
+        background: linear-gradient(to bottom, #100a05, transparent); /* Degradado vertical */
+        height: 20%; /* Altura del degradado */
+    }
+
+    #caracteristicas::after {
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to top, #100a05, transparent);
+    }
+
+    .peeking-image,
+    .peeking-image-left {
+        display: none; /* Oculta las imágenes que se asoman en móvil */
+    }
+
+    #datos-planeta {
+        flex-direction: column; /* Apila la imagen y los datos */
+        height: auto; /* Altura automática */
+        padding: 4em 1em; /* Ajusta el padding */
+    }
+
+    .datos-planeta-img {
+        width: 80%; /* La imagen del planeta ocupa más ancho */
+        height: auto;
+        margin: 0 auto 2em auto; /* Centra y añade margen inferior */
+        transform: none !important; /* Anula la animación de translateX de JS */
+        opacity: 1 !important; /* Asegura que sea visible */
+    }
+
+    .datos-container {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        flex-direction: column; /* Apila los puntos de datos */
+        align-items: flex-start; /* Alinea el texto a la izquierda */
+    }
+
+    .data-point {
+        position: static; /* Anula el posicionamiento absoluto */
+        opacity: 1 !important; /* Asegura que sea visible */
+        margin-bottom: 1em; /* Espacio entre puntos de datos */
+    }
+
+    .data-point .line {
+        display: none; /* Oculta las líneas en móvil */
+    }
+
+    .data-point .text {
+        white-space: normal; /* Permite que el texto se ajuste y no cause desbordamiento */
+    }
+}

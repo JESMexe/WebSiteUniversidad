@@ -1,0 +1,686 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Raleway:wght@400;700&display=swap');
+
+/* Estilos generales */
+html {
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    scroll-padding-top: 5.5rem; /* Offset global para el header. Deja espacio para que el header fijo no tape los títulos. */
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    scroll-behavior: smooth;
+    cursor: url('../Assets/Cursor/2.png'), auto;
+}
+
+/* Previene el scroll del body cuando el menú está abierto */
+body.nav-active {
+    overflow: hidden;
+}
+
+a:hover, a:focus, button:hover, button:focus, .miembro, .block, li:hover, li:focus, ul:hover, ul:focus, nav:hover, nav:focus {
+    cursor: url('../Assets/Cursor/3.png'), pointer;
+}
+
+/* Header */
+header {
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background-color: rgba(10, 10, 10, 0.8);
+    border-bottom: 1px solid #333;
+}
+
+#logo {
+    height: 35px;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Oculto en desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002; /* Por encima del nav overlay */
+    position: relative;
+    width: 30px;
+    height: 22px;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #e0e0e0;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 1.5em;
+    list-style-type: none;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Flecha para indicar submenú principal */
+nav ul li.dropdown > a::after {
+    content: ' ▾';
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+/* Estilos para el Submenú Desplegable */
+nav ul li.dropdown {
+    position: relative;
+}
+
+nav ul .submenu,
+nav ul .submenu-level2 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid #333;
+    border-radius: 8px;
+    width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1001;
+}
+
+nav ul li.dropdown:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.submenu li {
+    display: block;
+    margin: 0;
+}
+
+.submenu li a {
+    display: block;
+    padding: 0.8em 1.2em;
+    color: #e0e0e0;
+    font-size: 0.9em;
+}
+
+.submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.submenu .dropdown-submenu {
+    position: relative;
+}
+
+.submenu .dropdown-submenu > a::after {
+    content: '▸';
+    position: absolute;
+    right: 1.2em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.submenu .submenu-level2 {
+    left: 100%;
+    top: 0;
+    margin-top: -1px; /* Alineación fina */
+}
+
+/* Mostrar el sub-submenú al pasar el mouse */
+.submenu .dropdown-submenu:hover > .submenu-level2 {
+    opacity: 1;
+    visibility: visible;
+}
+
+#sound-toggle {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-size: 1.5em;
+}
+
+/* Contenedor principal */
+main {
+    padding: 0;
+}
+
+/* Estilo general para las secciones */
+section {
+    position: relative;
+    margin-bottom: 3em;
+    padding: 4em 2em;
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    font-family: 'Exo 2', sans-serif;
+    color: #e0e0e0;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Sección de Inicio */
+#inicio {
+    background-image: linear-gradient(to right, rgba(10, 10, 10, 0.9) 0%, transparent 100%), url("../Assets/fondo.jpg");
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; /* Cambiado de 100vw a 100% para evitar overflow horizontal */
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.columna-texto, .columna-imagen {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    z-index: 2;
+    padding: 2em;
+}
+
+.columna-imagen img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(50%);
+}
+
+/* Sección Misión */
+#mision {
+    padding: 6em 2em; /* Aumenta el margen vertical */
+    margin-bottom: 0; /* Fix para la banda negra sobre el video */
+    border-bottom: none; /* Elimina la línea divisoria para una unión perfecta */
+}
+
+#mision-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás del texto */
+}
+
+.mision-content {
+    max-width: 800px; /* Limita el ancho del texto para que sea más vertical */
+    margin: 0 auto; /* Centra el contenedor de texto */
+    text-align: center;
+}
+
+/* Sección Tripulación */
+#tripulacion {
+    padding: 0;
+}
+
+.video-fondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+}
+
+#tripulacion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65); /* Overlay más oscuro */
+    z-index: -1;
+}
+
+.tripulacion-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    padding: 4em 2em;
+}
+
+.miembro {
+    flex-basis: 200px;
+}
+
+.miembro img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #555;
+    filter: grayscale(100%);
+    transition: all 0.4s ease; /* Transición para filtro y tamaño */
+}
+
+.miembro img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.15); /* Se agranda al pasar el mouse */
+}
+
+/* Sección Galería */
+.galeria-container {
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    gap: 5px;
+}
+
+a.block {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    filter: grayscale(100%) blur(3px);
+    text-decoration: none; /* Quitamos el subrayado del enlace */
+}
+
+a.block:hover {
+    flex: 4;
+    filter: grayscale(0%) blur(0);
+}
+
+a.block .content {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5em;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+a.block:hover .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a.block .content h3 {
+    margin: 0 0 0.5em 0;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+/* Página de Contacto */
+.contact-page .video-fondo {
+    position: fixed;
+    filter: brightness(0.4) blur(1px); /* Oscurece más el video y añade un desenfoque sutil */
+}
+
+.contact-page main {
+    /* Se elimina flexbox para un posicionamiento de bloque normal */
+    /* Esto evita que el formulario sea cortado por el header */
+    padding: 0;
+}
+
+/* Formulario de Contacto */
+#contacto {
+    padding: 0; /* El padding lo controla el main */
+    border-bottom: none;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 3em;
+    background-color: rgba(0, 0, 0, 0.75); /* Ligeramente más opaco para resaltar */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(179, 199, 225, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 2.5em; /* Más espacio entre campos */
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 1em;
+    color: #888;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #e0e0e0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #555;
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Animación de la etiqueta flotante y la línea inferior */
+.form-group input:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:valid ~ label {
+    top: -20px;
+    color: #cccccc; /* Color de acento gris claro */
+}
+
+.form-group input:focus,
+.form-group input:valid,
+.form-group textarea:focus,
+.form-group textarea:valid {
+    border-bottom-color: #cccccc;
+}
+
+.form-group textarea {
+    resize: none; /* Para un look más limpio */
+    min-height: 120px;
+}
+
+/* Fix para el fondo blanco de autofill en Chrome/Safari */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important; /* Forza el fondo a ser el del body */
+    -webkit-text-fill-color: #e0e0e0 !important; /* Forza el color del texto */
+    transition: background-color 5000s ease-in-out 0s; /* Hack para evitar cambio de color */
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    border: 2px solid #cccccc;
+    background-color: transparent;
+    color: #cccccc;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.submit-btn:hover {
+    color: #0a0a0a;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #cccccc;
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+.submit-btn:hover::before {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: #0a0a0a;
+    color: #888;
+    text-align: center;
+    padding: 2em;
+    border-top: 1px solid #222;
+    font-size: 0.9em;
+}
+
+.redes-sociales a {
+    color: #aaa;
+    margin: 0 1em;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    color: #ffffff;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 5.5rem; /* El header es más bajo en móvil */
+    }
+
+    header {
+        flex-direction: row; /* Logo y hamburguesa en la misma línea */
+        justify-content: space-between;
+        padding: 1em 1.5em; /* Ajuste de padding */
+    }
+
+    /* Ocultar video decorativo en móvil */
+    .header-video-deco {
+        display: none;
+    }
+
+    /* Ocultar botón de sonido en móvil para simplificar el header y evitar conflictos */
+    #sound-toggle {
+        display: none;
+    }
+
+    /* Mostrar y estilizar el menú hamburguesa */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Estilos para el menú cuando está abierto (cruz) */
+    .nav-active .hamburger-menu span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .nav-active .hamburger-menu span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-active .hamburger-menu span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-active .hamburger-menu span {
+        background-color: #ffffff; /* Cambia a blanco para mejor visibilidad */
+    }
+
+    /* Ocultar la navegación de escritorio y preparar para el modo móvil */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Empieza fuera de la pantalla */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 1001;
+    }
+
+    /* Clase para mostrar el menú */
+    .nav-active nav {
+        right: 0;
+    }
+
+    nav ul {
+        text-align: center;
+        margin-top: 0;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav li {
+        display: block;
+        margin: 1.5em 0;
+        transform: translateX(50px);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    /* Animación de entrada de los items del menú */
+    .nav-active nav li {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .nav-active nav li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-active nav li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-active nav li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-active nav li:nth-child(4) { transition-delay: 0.4s; }
+    .nav-active nav li:nth-child(5) { transition-delay: 0.5s; }
+
+    nav a {
+        font-size: 1.8em; /* Texto más grande para móvil */
+        font-family: 'Exo 2', sans-serif;
+    }
+
+    /* Lógica de submenús en móvil */
+    nav ul li.dropdown > a::after,
+    .submenu .dropdown-submenu > a::after {
+        content: ' ▾'; /* Flecha para indicar que es desplegable */
+        display: inline-block;
+    }
+
+    nav ul .submenu,
+    nav ul .submenu-level2 {
+        position: static; /* Quitar posicionamiento absoluto */
+        transform: none;
+        background-color: transparent;
+        backdrop-filter: none;
+        border: none;
+        width: auto;
+        opacity: 1;
+        visibility: visible;
+        display: none; /* Oculto por defecto, se muestra con JS */
+        padding-left: 1em; /* Indentación para submenús */
+        margin-top: 1em;
+    }
+
+    .submenu li a {
+        padding: 0.5em 0;
+        font-size: 0.7em; /* Tamaño relativo al padre */
+        color: #aaa;
+    }
+
+    /* Clase 'open' que añade JS para mostrar submenús */
+    .dropdown.open > .submenu,
+    .dropdown-submenu.open > .submenu-level2 {
+        display: block;
+    }
+
+    #inicio {
+        height: auto;
+        padding: 6em 1.5em 4em 1.5em; /* Más padding superior para el contenido */
+        text-align: center;
+    }
+
+    .columna-texto, .columna-imagen {
+        min-width: 100%;
+        padding: 1em 0;
+    }
+
+    .columna-imagen img {
+        width: 70%;
+    }
+
+    h2 {
+        font-size: 2em; /* Smaller headings on mobile */
+    }
+
+    section {
+        padding: 3em 1.5em; /* Adjust section padding */
+    }
+
+    .galeria-container {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+
+    a.block {
+        flex: none; /* Remove flex-grow on mobile */
+        width: 100%; /* Full width */
+        height: 200px; /* Fixed height for blocks */
+    }
+
+    a.block:hover {
+        flex: none; /* Prevent flex-grow on hover */
+    }
+
+    /* Contact form adjustments */
+    .form-container {
+        padding: 2em 1.5em;
+    }
+}

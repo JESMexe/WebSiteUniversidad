@@ -1,0 +1,413 @@
+/* Estilos para la página del Planeta de Mann */
+
+.mann-page {
+    background-color: #05080a; /* Un negro ligeramente azulado */
+}
+
+/* Canvas para la animación de fondo */
+#background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás de todo el contenido */
+}
+
+/* Sección de Héroe */
+#hero-mann {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* GUÍA: Reemplaza con la ruta a tu imagen de fondo */
+    /* Se elimina la imagen de fondo para mostrar las partículas de estrellas */
+    padding: 0 2em;
+    position: relative; /* Necesario para posicionar el .scroll-object */
+    margin-bottom: 0; /* Elimina el espacio negro con la siguiente sección */
+}
+
+#hero-mann h1 {
+    font-size: 3.5em;
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(220, 220, 220, 0.5); /* Sombra para resaltar */
+    color: #dcdcdc; /* Cambiado a gris claro */
+}
+
+#hero-mann .subtitle {
+    font-size: 1.2em;
+    color: #a0a0a0; /* Cambiado a gris neutro */
+    margin-top: 0.5em;
+}
+
+/* Estilos para las secciones de información */
+#la-confrontacion {
+    z-index: 11;        /* Por encima del planeta flotante */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4em 2em;
+}
+
+/* SECCIÓN 2: CARACTERÍSTICAS (FONDO BLANCO) */
+#caracteristicas {
+    /* El fondo ahora es solo la imagen */
+    max-width: none; /* Se extiende a todo lo ancho */
+    padding-left: 0; /* Quitamos padding para que los degradados lleguen al borde */
+    padding-right: 0;
+    /* GUÍA: Reemplaza 'path/to/your/image.jpg' con la ruta a tu imagen de fondo de nieve */
+    background-image: url('../Assets/Planetas/PlanetaMannViewer.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Para los degradados laterales */
+    z-index: 1; /* z-index más bajo para que el canvas global no interfiera */
+    padding-top: 4em;
+    padding-bottom: 4em;
+    margin-bottom: 0; /* Pega esta sección a la siguiente */
+    border-bottom: none; /* Elimina la línea divisoria */
+}
+
+/* Degradados laterales para la sección de características */
+#caracteristicas::before,
+#caracteristicas::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%; /* Ancho del degradado */
+    z-index: 2; /* Por encima del canvas de nieve */
+}
+
+#caracteristicas::before {
+    left: 0;
+    background: linear-gradient(to right, #00000098, transparent);
+}
+
+#caracteristicas::after {
+    right: 0;
+    background: linear-gradient(to left, #00000098, transparent);
+}
+
+/* Contenedor interno para centrar el contenido de la sección 2 */
+#caracteristicas .info-container,
+#caracteristicas h2 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 3; /* Por encima de los degradados */
+    padding-left: 1em; /* Re-aplicamos el padding aquí */
+    padding-right: 1em;
+}
+
+#caracteristicas h2,
+#caracteristicas p {
+    color: #252525; /* Color de texto oscuro y moderno */
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.info-card {
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco semi-transparente */
+    backdrop-filter: blur(5px);
+    border: 1px solid #d0d5db;
+    padding: 1.5em;
+    border-radius: 8px;
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: #444444; /* Cambiado a gris oscuro */
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* SECCIÓN 3: EL ENGAÑO (CON VIDEO DE FONDO) */
+#el-engano {
+    padding: 0; /* Quitamos padding para que el video ocupe todo */
+    max-width: none; /* Ancho completo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    position: relative; /* Para posicionar elementos hijos absolutos */
+    overflow: hidden; /* Para contener la imagen que se asoma */
+}
+
+.video-fondo-seccion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter:blur(5px); /* Desenfoque para disimular calidad */
+}
+
+#el-engano::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55); /* Overlay más oscuro para disimular calidad */
+    z-index: -1;
+}
+
+.contenido-seccion {
+    max-width: 900px;
+    padding: 4em 2em;
+    z-index: 1;
+}
+
+.texto-engano {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid #666666; /* Cambiado a gris */
+    padding: 2em;
+    border-radius: 0 8px 8px 0;
+}
+
+#el-engano p, #la-confrontacion p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Imagen que se asoma en la sección 3 */
+.peeking-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 480px; /* Ajusta el tamaño según tu imagen */
+    height: auto;
+    z-index: 0; /* Detrás del texto pero sobre el overlay del video */
+    transform: translateX(80%); /* Estado inicial: mayormente oculto a la derecha */
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.peeking-image.is-visible {
+    transform: translateX(20%); /* Estado final: asomándose */
+}
+
+/* Imagen de Cooper que se asoma por la izquierda */
+.peeking-image-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 380px; /* Ajusta el tamaño según tu imagen */
+    height: auto;
+    z-index: 0;
+    transform: translateX(-80%); /* Estado inicial: mayormente oculto a la izquierda */
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.peeking-image-left.is-visible {
+    transform: translateX(-20%); /* Estado final: asomándose desde la izquierda */
+}
+
+/* Estado inicial para las animaciones de scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Margen inferior para la última sección */
+#la-confrontacion {
+    padding-bottom: 8em; /* Más espacio antes del footer */
+}
+
+/* Planeta flotante en la primera sección */
+.scroll-object {
+  position: absolute;
+  bottom: -150px;       /* Añadida posición vertical para que no se vaya arriba */
+  left: 85%;
+  transform: translateX(-50%); /* Centrado horizontalmente */
+  width: 800px;         /* Tamaño inicial */
+  z-index: -1;           /* Corregido: Un valor positivo para que sea visible */
+  max-width: 90vw; /* Asegura que no se desborde en pantallas grandes */
+  transform-origin: center center; /* Para que la rotación y escala sean desde el centro */
+  opacity: 1;
+}
+
+/* Nueva sección de datos del planeta */
+#datos-planeta {
+    height: 100vh;  /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra verticalmente en desktop */
+    position: relative;
+    overflow: hidden; /* Importante para que el planeta no se salga */
+    gap: 2em;
+    padding: 2em;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+}
+
+.datos-planeta-img {
+    height: 90%; /* Grande, pero no ocupa toda la pantalla */
+    opacity: 0.8;
+    z-index: 5;  /* Corregido: Detrás de los datos (que tienen z-index 6) */
+    transform: translateX(-100vw); /* Estado inicial para la animación (fuera de pantalla) */
+    opacity: 0; /* Estado inicial para la animación (invisible) */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+}
+
+.datos-container {
+    position: static; /* Asegura que no haya posicionamiento absoluto aquí */
+    width: 50%;
+    height: 100%;
+    display: flex; /* Para organizar los data-points */
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+
+.data-point {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    opacity: 0; /* Oculto por defecto */
+}
+
+.data-point .line {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #bbbbbb); /* Cambiado a gris */
+    transform-origin: left center; /* La línea crece desde la izquierda */
+    transform: scaleX(0); /* Oculta por defecto */
+}
+
+.data-point .text {
+    color: #dcdcdc; /* Cambiado a gris claro */
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.1em;
+    white-space: nowrap;
+    padding-left: 15px;
+    text-shadow: 0 0 5px rgba(200, 200, 200, 0.3); /* Sombra grisácea */
+}
+
+/* Posicionamiento profesional de los datos */
+#data-temp { top: 20%; left: 45%; }
+#data-temp .line { width: 100px; }
+
+#data-atmo { top: 40%; left: 50%; }
+#data-atmo .line { width: 150px; }
+
+#data-grav { top: 60%; left: 50%; }
+#data-grav .line { width: 120px; }
+
+#data-dia { top: 80%; left: 45%; }
+#data-dia .line { width: 180px; }
+
+/* Canvas específico para la nieve en la sección 2 */
+#snow-canvas {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1; /* Entre el fondo y los degradados */
+}
+
+/* Video decorativo en el header */
+.header-video-deco {
+    height: 40px; /* Altura similar a la del logo */
+    width: 40px;  /* Ancho igual para hacerlo un círculo perfecto */
+    object-fit: cover; /* Asegura que el video cubra el área sin deformarse */
+    border-radius: 50%; /* Lo hace circular */
+    margin-right: 1.5em; /* Espacio entre el video y el botón de sonido */
+    border: 1px solid #555;
+    opacity: 0.7;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave */
+    transform-origin: top right; /* Ancla la animación a la esquina superior derecha */
+}
+
+.header-video-deco:hover {
+    transform: scale(5); /* Aumenta el tamaño 5 veces */
+    border-radius: 2px; /* Lo convierte en un cuadrado con bordes redondeados */
+    opacity: 1; /* Lo hace completamente visible */
+    border-color: #252525;
+    z-index: 1001; /* Se asegura de que esté por encima de otros elementos del header */
+}
+
+/* Media Queries para Responsividad en Mann Page */
+@media (max-width: 768px) {
+    #hero-mann {
+        height: auto; /* Altura automática para el contenido */
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    #hero-mann h1 {
+        font-size: 2.5em; /* Reduce el tamaño del título */
+    }
+
+    #hero-mann .subtitle {
+        font-size: 1em; /* Reduce el tamaño del subtítulo */
+    }
+
+    .scroll-object {
+        width: 90%; /* El planeta ocupa más ancho */
+        left: 50%; /* Centrado */
+        transform: translateX(-50%) scale(1) !important; /* Anula la animación de escala de JS para que no se desborde */
+        bottom: 0; /* Ajusta la posición vertical */
+        opacity: 1 !important; /* Asegura que sea visible */
+    }
+
+    #caracteristicas::before,
+    #caracteristicas::after {
+        width: 100%; /* Degradados de ancho completo */
+        background: linear-gradient(to bottom, #00000098, transparent); /* Degradado vertical */
+        height: 20%; /* Altura del degradado */
+    }
+
+    #caracteristicas::after {
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to top, #00000098, transparent);
+    }
+
+    .peeking-image,
+    .peeking-image-left {
+        display: none; /* Oculta las imágenes que se asoman en móvil */
+    }
+
+    #datos-planeta {
+        flex-direction: column; /* Apila la imagen y los datos */
+        height: auto; /* Altura automática */
+        padding: 4em 1em; /* Ajusta el padding */
+    }
+
+    .datos-planeta-img {
+        width: 80%; /* La imagen del planeta ocupa más ancho */
+        height: auto;
+        margin: 0 auto 2em auto; /* Centra y añade margen inferior */
+        transform: none !important; /* Anula la animación de translateX de JS */
+        opacity: 1 !important; /* Asegura que sea visible */
+    }
+
+    .datos-container {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        flex-direction: column; /* Apila los puntos de datos */
+        align-items: flex-start; /* Alinea el texto a la izquierda */
+    }
+
+    .data-point {
+        position: static; /* Anula el posicionamiento absoluto */
+        opacity: 1 !important; /* Asegura que sea visible */
+        margin-bottom: 1em; /* Espacio entre puntos de datos */
+    }
+
+    .data-point .line {
+        display: none; /* Oculta las líneas en móvil */
+    }
+
+    .data-point .text {
+        white-space: normal; /* Permite que el texto se ajuste y no cause desbordamiento */
+    }
+}

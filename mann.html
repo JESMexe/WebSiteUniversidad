@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar - El Planeta de Mann</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/mann-styles.css">
+    <link rel="icon" type="image/png" href="Assets/Interstellar_film_logo.png">
+</head>
+<body class="mann-page">
+
+    <!-- Canvas para la animación de fondo con anime.js -->
+    <canvas id="background-animation"></canvas>
+
+    <header>
+        <a href="index.html"><img src="Assets/Interstellar_film_logo.png" alt="Logo de Interestelar" id="logo"></a>
+        <button class="hamburger-menu" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#mision">La Misión</a></li>
+                <li><a href="index.html#tripulacion">Tripulación</a></li>
+                <li class="dropdown">
+                    <a href="index.html#galeria">Galería</a>
+                    <ul class="submenu">
+                        <li class="dropdown-submenu">
+                            <a href="#">Planetas</a>
+                            <ul class="submenu-level2">
+                                <li><a href="miller.html">Miller</a></li>
+                                <li><a href="edmunds.html">Edmunds</a></li>
+                                <li><a href="mann.html">Mann</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gargantua.html">Gargantua</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Video decorativo -->
+        <video autoplay loop muted class="header-video-deco">
+            <source src="Assets/Video/LogoPlanetaMann.mp4" type="video/mp4">
+        </video>
+        <button id="sound-toggle" type="button">🔇</button>
+    </header>
+
+    <main>
+        <section id="hero-mann" class="scroll-reveal">
+            <h1>El Mundo Helado de Mann</h1>
+            <p class="subtitle">Un planeta de desolación, amoníaco y promesas rotas.</p>
+            <img src="Assets/Planetas/PlanetaMann.png" alt="Planeta de Mann flotando" class="scroll-object">
+        </section>
+
+        <section id="caracteristicas">
+            <canvas id="snow-canvas"></canvas>
+            <h2 class="scroll-reveal">Un Paisaje de Hielo Eterno</h2>
+            <div class="info-container">
+                <div class="info-card scroll-reveal">
+                    <h3>Atmósfera Hostil</h3>
+                    <p>La atmósfera del planeta es delgada y tóxica, compuesta principalmente de nitrógeno y metano, con una alta concentración de amoníaco. Es completamente irrespirable para los humanos y las temperaturas diurnas rondan los -80°C.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>Superficie Engañosa</h3>
+                    <p>Lo que a primera vista parecen montañas y tierra firme son en realidad gigantescos glaciares de hielo y amoníaco congelado. No existe agua líquida en la superficie, solo un desierto helado bajo un cielo perpetuamente nublado.</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>Gravedad y Tiempo</h3>
+                    <p>La gravedad es del 80% de la de la Tierra, lo que la hace manejable. A diferencia del planeta de Miller, no sufre una dilatación temporal extrema, permitiendo una estancia prolongada sin perder décadas en la Tierra. Un día en este planeta dura aproximadamente 67 horas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="el-engano">
+            <!--<video autoplay loop muted class="video-fondo-seccion">
+                <source src="Assets/Video/VisualesPlanetaMann ‐ Hecho con Clipchamp.mp4" type="video/mp4">
+            </video>-->
+            <img src="Assets/Planetas/Mann.webp" class="video-fondo-seccion"></img>
+            <img src="Assets/Personajes/MannCuerpo.png" alt="Dr. Mann asomándose" class="peeking-image">
+            <img src="Assets/Personajes/CooperPerfil.png" alt="Cooper asomándose" class="peeking-image-left">
+            <div class="contenido-seccion scroll-reveal">
+                <h2>La Promesa Rota</h2>
+                <div class="texto-engano">
+                    <p>
+                        El Dr. Mann, el líder de las misiones Lázaro, transmitió datos que indicaban un mundo habitable, con una superficie orgánica y condiciones favorables. Esta fue la señal que atrajo a la tripulación del Endurance, desesperada por encontrar un nuevo hogar para la humanidad.
+                    </p>
+                    <p>
+                        Sin embargo, todo era una mentira. Atrapado por la soledad y el pánico al descubrir que su planeta era un fracaso, Mann falsificó los datos y activó la baliza con la única esperanza de ser rescatado. Su "superficie habitable" no era más que una nube de amoníaco congelado. Su egoísmo lo llevó a sacrificar la misión y a poner en peligro a toda la humanidad.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN DE DATOS -->
+        <section id="datos-planeta">
+            <!-- Imagen del planeta para esta sección -->
+            <img src="Assets/Planetas/PlanetaMann.png" alt="Análisis del Planeta de Mann" class="datos-planeta-img">
+            <div class="datos-container">
+                <!-- Estos son los elementos que se animarán -->
+                <div class="data-point" id="data-temp">
+                    <div class="line"></div>
+                    <div class="text">Temperatura: -80°C (Superficie)</div>
+                </div>
+                <div class="data-point" id="data-atmo">
+                    <div class="line"></div>
+                    <div class="text">Amoníaco: 67% (Atmosfera superior)</div>
+                </div>
+                <div class="data-point" id="data-grav">
+                    <div class="line"></div>
+                    <div class="text">Gravedad: 80% Tierra</div>
+                </div>
+                <div class="data-point" id="data-dia">
+                    <div class="line"></div>
+                    <div class="text">Duración del día: 67.2 Horas</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="la-confrontacion" class="scroll-reveal">
+            <h2>El Encuentro en el Hielo</h2>
+            <p>
+                Al llegar, la tripulación del Endurance encuentra a Mann en crio-sueño. Tras despertarlo, este los guía a través del desolado paisaje, manteniendo su engaño. La confrontación ocurre cuando Cooper descubre la verdad en los datos del robot KIPP. Mann, acorralado, intenta asesinar a Cooper y escapar con la nave Ranger, desencadenando una de las secuencias más tensas y destructivas de la misión.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="legales">
+            <p>&copy; 2024 - Sitio de Fans de Interestelar. Creado con fines educativos y de entretenimiento.</p>
+            <p>Interestelar y todos los materiales relacionados son propiedad de Paramount Pictures y Warner Bros. Pictures.</p>
+        </div>
+        <div class="redes-sociales">
+            <a href="#" title="Facebook">FB</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Instagram">IG</a>
+        </div>
+    </footer>
+
+    <audio id="background-music" src="Assets/Music/Interestellar-Soudtrack.mp3" loop></audio>
+
+    <!-- Librería Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Scripts de la página principal y de esta página -->
+    <script src="JS/main.js"></script>
+    <script src="JS/mann-script.js"></script>
+</body>
+</html>

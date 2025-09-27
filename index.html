@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar - Fan Site</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="icon" type="image/png" href="Assets/Interstellar_film_logo.png">
+</head>
+<body>
+
+    <header>
+        <!-- He usado un logo de ejemplo. Puedes reemplazarlo con tu propia imagen. -->
+        <a href="#inicio"><img src="Assets/Interstellar_film_logo.png" alt="Logo de Interestelar" id="logo"></a>
+        <button class="hamburger-menu" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#mision">La Misión</a></li>
+                <li><a href="#tripulacion">Tripulación</a></li>
+                <li class="dropdown">
+                    <a href="#galeria">Galería</a>
+                    <ul class="submenu">
+                        <li class="dropdown-submenu">
+                            <a href="#">Planetas</a>
+                            <ul class="submenu-level2">
+                                <li><a href="miller.html">Miller</a></li>
+                                <li><a href="edmunds.html">Edmunds</a></li>
+                                <li><a href="mann.html">Mann</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="gargantua.html">Gargantua</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    <button id="sound-toggle" type="button">🔇</button>
+    </header>
+
+    <main>
+        <!-- SECCIÓN DE INICIO -->
+        <section id="inicio">
+            <div class="columna-texto">
+                <h2>No nos crearon para salvar el mundo. Nos crearon para abandonarlo.</h2>
+                <p>
+                    En un futuro cercano, la Tierra se ha convertido en un lugar hostil donde la agricultura masiva ha provocado tormentas de polvo y una plaga que amenaza con extinguir a la humanidad. La única esperanza reside en un grupo de exploradores liderados por Cooper, un ex-piloto de la NASA, que se embarcan en la misión más importante de la historia humana: viajar a través de un agujero de gusano cerca de Saturno en busca de un nuevo planeta habitable.
+                </p>
+                <p>
+                    Dejando atrás a su familia, Cooper y su tripulación se enfrentan a los peligros de lo desconocido, explorando mundos lejanos donde el tiempo se dilata y las decisiones pueden costar décadas. "Interestelar" es un viaje épico sobre el amor, el sacrificio y los límites de la exploración humana.
+                </p>
+            </div>
+            <div class="columna-imagen">
+                <!-- Imagen de Gargantua para la columna derecha -->
+                <img src="Assets/Nave.png" alt="El agujero negro Gargantua">
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE LA MISIÓN -->
+        <section id="mision">
+            <canvas id="mision-canvas"></canvas>
+            <div class="mision-content">
+                <h2>La Misión Lázaro y Endurance</h2>
+                <p>
+                    Ante la inminente catástrofe en la Tierra, la NASA, operando en secreto, inició las Misiones Lázaro. Doce valientes astronautas viajaron a través del agujero de gusano para explorar doce planetas potencialmente habitables. Años después, la misión Endurance es lanzada para seguir los datos más prometedores, con el destino de la humanidad en sus manos. Su objetivo es doble: encontrar un nuevo hogar (Plan A) o, en el peor de los casos, iniciar una nueva colonia con embriones congelados (Plan B).
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE LA TRIPULACIÓN -->
+        <section id="tripulacion">
+            <video autoplay loop muted class="video-fondo">
+                <source src="Assets/Video/InterestellarFondoVideo ‐ Hecho con Clipchamp.mp4" type="video/mp4">
+            </video>
+            <h2>La Tripulación del Endurance</h2>
+            <div class="tripulacion-container">
+                <div class="miembro">
+                    <!-- NOTA: Reemplaza estas imágenes de placeholder con las de los personajes -->
+                    <img src="/HTML5/Universidad/TrabajoUno/Assets/Personajes/Cooper.jpg" alt="Cooper">
+                    <h3>Cooper</h3>
+                    <p>El piloto y padre que deja todo atrás por una promesa a su hija.</p>
+                </div>
+                <div class="miembro">
+                    <img src="/HTML5/Universidad/TrabajoUno/Assets/Personajes/Brand.jpg" alt="Brand">
+                    <h3>Amelia Brand</h3>
+                    <p>La científica brillante, impulsada por la ciencia y el corazón.</p>
+                </div>
+                <div class="miembro">
+                    <img src="/HTML5/Universidad/TrabajoUno/Assets/Personajes/Doyle.png" alt="Doyle">
+                    <h3>Doyle</h3>
+                    <p>El geógrafo consciente de los riesgos y el tiempo perdido.</p>
+                </div>
+                <div class="miembro">
+                    <img src="/HTML5/Universidad/TrabajoUno/Assets/Personajes/Romilly.png" alt="Romilly">
+                    <h3>Romilly</h3>
+                    <p>El físico que enfrenta la soledad y la relatividad del tiempo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE GALERÍA -->
+        <section id="galeria">
+            <h2>Galería de Mundos</h2>
+            <div class="galeria-container">
+                <a href="miller.html" class="block" style="background-image: url('/HTML5/Universidad/TrabajoUno/Assets/Planetas/Miller.webp');">
+                    <div class="content">
+                        <h3>Planeta de Miller</h3>
+                        <p>Un mundo oceánico donde el tiempo se dilata peligrosamente.</p>
+                    </div>
+                </a>
+                <a href="edmunds.html" class="block" style="background-image: url('/HTML5/Universidad/TrabajoUno/Assets/Planetas/Edmunds.png');">
+                    <div class="content">
+                        <h3>Planeta de Edmunds</h3>
+                        <p>Un mundo desértico y rocoso, pero con un potencial para la vida que representa la esperanza final de la humanidad.</p>
+                    </div>
+                </a>
+                <a href="mann.html" class="block" style="background-image: url('/HTML5/Universidad/TrabajoUno/Assets/Planetas/Mann.webp');">
+                    <div class="content">
+                        <h3>Planeta de Mann</h3>
+                        <p>Un planeta helado con una atmósfera de amoníaco, que esconde un oscuro secreto.</p>
+                    </div>
+                </a>
+                <a href="gargantua.html" class="block" style="background-image: url('/HTML5/Universidad/TrabajoUno/Assets/Planetas/Teseracto.jpg');">
+                    <div class="content">
+                        <h3>El Teseracto</h3>
+                        <p>Una construcción tetradimensional creada por seres del futuro.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="legales">
+            <p>&copy; 2024 - Sitio de Fans de Interestelar. Creado con fines educativos y de entretenimiento.</p>
+            <p>Interestelar y todos los materiales relacionados son propiedad de Paramount Pictures y Warner Bros. Pictures.</p>
+        </div>
+        <div class="redes-sociales">
+            <!-- Reemplaza '#' con los enlaces a tus redes sociales -->
+            <a href="#" title="Facebook">FB</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Instagram">IG</a>
+        </div>
+    </footer>
+
+    <audio id="background-music" src="Assets/Music/Interestellar-Soudtrack.mp3" loop></audio>
+
+    <script  src="JS/main.js"></script>
+</body>
+</html>
