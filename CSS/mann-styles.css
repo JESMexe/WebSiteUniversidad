@@ -11,7 +11,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Detrás de todo el contenido */
+    z-index: -1;
 }
 
 /* Sección de Héroe */
@@ -42,6 +42,7 @@
     color: #a0a0a0; /* Cambiado a gris neutro */
     margin-top: 0.5em;
 }
+
 
 /* Estilos para las secciones de información */
 #la-confrontacion {
@@ -243,7 +244,7 @@
 #datos-planeta {
     height: 100vh;  /* Ocupa toda la altura de la pantalla */
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center; /* Centra verticalmente en desktop */
     position: relative;
     overflow: hidden; /* Importante para que el planeta no se salga */
