@@ -486,6 +486,37 @@ textarea:-webkit-autofill {
     z-index: -1;
 }
 
+/* Contenedor para el formulario y el mapa */
+.contact-wrapper {
+    display: flex;
+    gap: 2em;
+    align-items: stretch; /* Hace que ambos contenedores tengan la misma altura */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-container, .map-container {
+    flex: 1; /* Ambos ocupan el 50% del espacio */
+}
+
+.map-container {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(179, 199, 225, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    padding: 1em;
+    display: flex;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* Filtro para que el mapa se integre mejor con la estética oscura */
+    filter: grayscale(100%) invert(90%) contrast(80%);
+}
+
 .submit-btn:hover::before {
     width: 100%;
 }
@@ -682,5 +713,15 @@ footer {
     /* Contact form adjustments */
     .form-container {
         padding: 2em 1.5em;
+    }
+
+    .contact-wrapper {
+        flex-direction: column; /* Apila el formulario y el mapa */
+        gap: 2em;
+    }
+
+    .map-container {
+        min-height: 400px; /* Altura mínima para el mapa en móvil */
+        padding: 0.5em;
     }
 }

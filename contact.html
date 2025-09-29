@@ -46,22 +46,26 @@
     <main>
         <section id="contacto">
             <h2>Contacto</h2>
-            <div class="form-container">
-                <form id="contact-form" action="mailto:tuemail@example.com" method="post" enctype="text/plain">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Nombre</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" required></textarea>
-                        <label for="message">Mensaje</label>
-                    </div>
-                    <button type="submit" class="submit-btn">Enviar</button>
-                </form>
+            <div class="contact-wrapper">
+                <div class="form-container">
+                    <form id="contact-form" action="mailto:tuemail@example.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Nombre</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Mensaje</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar</button>
+                    </form>
+                </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.559144186576!2d-58.60460592424938!3d-34.640579459446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc951c0fe2d9f5%3A0x9f1c540898efecbe!2sUTN%20HAEDO!5e0!3m2!1ses!2sar!4v1759148704590!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     </main>
